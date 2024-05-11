@@ -11,7 +11,7 @@ export const Image = ({ path, alt, location, date }) => {
     return (
         <div onClick={handleClick} className="relative m-5">
             <img
-                className="h-full max-w-auto rounded-[50px] object-cover object-center"
+                className="h-auto max-w-full md:h-full md:max-w-auto rounded-[50px] object-cover object-center"
                 src={path}
                 alt={alt}
             />
