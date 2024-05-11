@@ -16,25 +16,29 @@ export function Gallery() {
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             <div className="grid gap-4">
-                <Image path={p1} alt="blabla" date="today" location="istanbul"/>
-                <Image path={p2} alt="blabla" date="today" location="istanbul"/>
-                <Image path={p3} alt="blabla" date="today" location="istanbul"/>
-                <Image path={p4} alt="blabla" date="today" location="istanbul"/>
-            </div>
-            <div className="grid gap-4">
-                <Image path={p5} alt="blabla" date="today" location="istanbul"/>
-                <Image path={p6} alt="blabla" date="today" location="istanbul"/>
-                <Image path={p7} alt="blabla" date="today" location="istanbul"/>
-                <Image path={p8} alt="blabla" date="today" location="istanbul"/>
-            </div>
-            <div className="grid gap-4">
-                <Image path={p9} alt="blabla" date="today" location="istanbul"/>
-                <Image path={p10} alt="blabla" date="today" location="istanbul"/>
-                <Image path={p11} alt="blabla" date="today" location="istanbul"/>
-            </div>
-            <div className="grid gap-4">
+                <Image path={p9} alt="park" date="8 May 2024" location="Kağıthane, İstanbul"/>
+                <Image path={p5} alt="landscape" date="8 Feb 2024" location="Caddebostan, İstanbul"/>
+                <Image path={p2} alt="Sunset" date="23 Nov 2023" location="Kadıköy, İstanbul"/>
 
             </div>
+            <div className="grid gap-4">
+                <Image path={p8} alt="night" date="30 Apr 2024" location="Kemerburgaz, İstanbul"/>
+                <Image path={p3} alt="Basilica Cistern" date="03 Feb 2024" location="Fatih, İstanbul"/>
+                <Image path={p11} alt="mosque" date="25 Sep 2023" location="Kağıthane, İstanbul"/>
+
+            </div>
+            <div className="grid gap-4">
+                <Image path={p7} alt="bosphorus" date="25 Feb 2024" location="İstanbul Bosphorus"/>
+                <Image path={p4} alt="Basilica Cistern" date="03 Feb 2024" location="Fatih, İstanbul"/>
+                <Image path={p10} alt="Dolmabahçe Palace" date="8 Jul 2023" location="Beşiktaş, İstanbul"/>
+
+            </div>
+            <div className="grid gap-4">
+                <Image path={p6} alt="metro station" date="22 Feb 2024" location="Maslak, İstanbul"/>
+                <Image path={p1} alt="ship" date="23 Nov 2023" location="Kadıköy, İstanbul"/>
+
+            </div>
+
         </div>
     );
 }

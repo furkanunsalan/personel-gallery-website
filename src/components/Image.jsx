@@ -17,7 +17,7 @@ export const Image = ({ path, alt, location, date }) => {
             />
             {isClicked && (
                 <div
-                    className="absolute flex flex-col items-center text-white"
+                    className="absolute flex flex-col items-center text-white w-max"
                     style={{
                         top: '50%',
                         left: '50%',
