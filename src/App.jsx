@@ -1,8 +1,12 @@
-import {Gallery} from "./Gallery.jsx";
+import {Gallery} from "./components/Gallery.jsx";
+import {Intro} from "./components/Intro.jsx";
 
 
 function App() {
-    return <Gallery />
+    return <>
+        <Intro />
+        <Gallery />
+        </>
 }
 
 export default App
