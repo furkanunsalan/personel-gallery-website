@@ -7,7 +7,7 @@ if (!admin.apps.length) {
 
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
-        storageBucket: 'your-bucket-name.appspot.com'  // Replace with your Firebase Storage bucket name
+        storageBucket: 'gs://gallery-website-9d258.appspot.com'  // Replace with your Firebase Storage bucket name
     });
 }
 
