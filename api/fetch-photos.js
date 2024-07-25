@@ -16,10 +16,11 @@ const bucket = admin.storage().bucket();
 export default async (req, res) => {
     try {
         const [files] = await bucket.getFiles();
-        const photos = await Promise.all(files.map(async file => {
-            const [url] = await file.getSignedUrl({ action: 'read', expires: '03-09-2491' });
-            return { name: file.name, url };
-        }));
+        const photos = files.map(file => {
+            // Generate a public URL for each file
+            const publicUrl = `https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${encodeURIComponent(file.name)}?alt=media`;
+            return { name: file.name, url: publicUrl };
+        });
 
         res.status(200).json({ photos });
     } catch (error) {
