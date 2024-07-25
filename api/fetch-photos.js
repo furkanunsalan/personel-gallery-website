@@ -7,19 +7,21 @@ if (!admin.apps.length) {
 
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
-        databaseURL: 'https://gallery-website-9d258.firebaseio.com'
+        storageBucket: 'your-bucket-name.appspot.com'  // Replace with your Firebase Storage bucket name
     });
 }
 
-const db = admin.firestore();
+const bucket = admin.storage().bucket();
 
 export default async (req, res) => {
     try {
-        const photosCollection = await db.collection('photos').get();
-        const photos = [];
-        photosCollection.forEach(doc => {
-            photos.push(doc.data());
+        const [files] = await bucket.getFiles();
+        const photos = files.map(file => {
+            // Generate a public URL for each file
+            const publicUrl = file.publicUrl();
+            return { name: file.name, url: publicUrl };
         });
+
         res.status(200).json({ photos });
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error', details: error.message });
