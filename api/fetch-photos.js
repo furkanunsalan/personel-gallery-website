@@ -7,7 +7,7 @@ if (!admin.apps.length) {
 
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
-        storageBucket: 'gs://gallery-website-9d258.appspot.com'  // Replace with your Firebase Storage bucket name
+        storageBucket: 'gs://gallery-website-9d258.appspot.com'
     });
 }
 
@@ -16,11 +16,10 @@ const bucket = admin.storage().bucket();
 export default async (req, res) => {
     try {
         const [files] = await bucket.getFiles();
-        const photos = files.map(file => {
-            // Generate a public URL for each file
-            const publicUrl = file.publicUrl();
-            return { name: file.name, url: publicUrl };
-        });
+        const photos = await Promise.all(files.map(async file => {
+            const [url] = await file.getSignedUrl({ action: 'read', expires: '03-09-2491' });
+            return { name: file.name, url };
+        }));
 
         res.status(200).json({ photos });
     } catch (error) {
