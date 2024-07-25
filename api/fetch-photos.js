@@ -1,12 +1,12 @@
 // api/fetch-photos.js
 import admin from 'firebase-admin';
 
-// Path to your service account key file
-const serviceAccountPath = '../gallery-website-9d258-firebase-adminsdk-g6g9b-400d0290b9';
-
 if (!admin.apps.length) {
+    // eslint-disable-next-line no-undef
+    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+
     admin.initializeApp({
-        credential: admin.credential.cert(serviceAccountPath),
+        credential: admin.credential.cert(serviceAccount),
         databaseURL: 'https://gallery-website-9d258.firebaseio.com'
     });
 }
